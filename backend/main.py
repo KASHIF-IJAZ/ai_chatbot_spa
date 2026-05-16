@@ -138,3 +138,11 @@ def generate_title(payload: TitleRequest):
             "..." if len(payload.first_message) > 30 else ""
         )
         return {"title": fallback}
+
+
+# Local development run karne ke liye
+if __name__ == "__main__":
+    import uvicorn
+
+    port = int(os.getenv("PORT", 7860))
+    uvicorn.run(app, host="0.0.0.0", port=port)
